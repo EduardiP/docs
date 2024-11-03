@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Squares with 30% and 70% Width</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0; 
+            background-image: url('images/887620-sci-fi-science-space-fantasy-art-artwork-artistic-futuristic.jpg'); /* Zëvendëso 'path/tek/fotoja.jpg' me rrugën e fotos tënde */
+            background-size: cover; /* Përshtat foton për të mbushur gjithë div-in */
+            background-position: center; /* Poziciono foton në qendër të div-it */
+            background-repeat: no-repeat;
+        }
+        .header {
+            width: 612px;
+            height: auto;
+            margin: 0 auto;
+            border: none;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: none;
+        }
+        h2 {
+            font-size: 24px;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            margin-left: 225px;
+        }
+        .button {
+            transition: background-color 0.3s, transform 0.7s;
+            width: 40px;
+            height: 40px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+            box-shadow: 2px 4px 12px #080033ce;
+            border-radius: 5px;
+        }
+        
+        .button:hover {
+            transform: scale(1.05); /* Efekti i zgjerimit */
+        }
+        .button:active {
+            transform: scale(1.3); /* Efekti i tkurrjes kur klikohet */
+        }
+
+        .button-1 {
+            background-color: #263f6d; /* Ngjyra e parë */
+        }
+        .button-2 {
+            background-color: #5c5a62; /* Ngjyra e dytë */
+            transition: background-color 0.3s, transform 0.7s;
+        }
+        .button-3 {
+            background-color: #bab6b6; /* Ngjyra e tretë */
+            transition: background-color 0.3s, transform 0.7s;
+        }
+        .button-4 {
+            background-color: #fFF; /* Ngjyra e tretë */
+            transition: background-color 0.3s, transform 0.7s;
+        }
+        .button-5 {
+            background-color: #55dcee; /* Ngjyra e tretë */
+            transition: background-color 0.3s, transform 0.7s;
+        }
+        .button-6 {
+            background-color: #cae4fc; /* Ngjyra e tretë */
+            transition: background-color 0.3s, transform 0.7s;
+        }
+    
+        .button-7 {
+            background-color: #e8e8e8; /* Ngjyra e tretë */
+            transition: background-color 0.3s, transform 0.7s;
+        }
+  
+        .button-8 {
+            background-color: #84c6e8; /* Ngjyra e tretë */
+            transition: background-color 0.3s, transform 0.7s;
+        }
+      
+        .button-9 {
+            background-color: #1d1d1d; /* Ngjyra e tretë */
+            transition: background-color 0.3s, transform 0.7s;
+        }
+      
+        
+        .button-10 {
+            background-color: #294959; /* Ngjyra e parë */
+            transition: background-color 0.3s, transform 0.7s;
+        }
+    
+        .button-11 {
+            background-color: #53274f; /* Ngjyra e parë */
+            transition: background-color 0.3s, transform 0.7s;
+        }
+      
+        .form-container {
+            width: 612px;
+            height: 792px;
+            margin: 0;
+            display: flex; /* Këtu e bëjmë flex për ta mbajtur përmbajtjen horizontalisht */
+            padding: 0;
+            position: relative;
+            box-shadow: 2px 4px 12px #080033ce;
+        }
+
+        /* Divi i ri me gjerësi 60px */
+        .side-bar {
+            width: 60px;
+            height: 792px; /* E njëjta lartësi si divi form-container */
+            background-color:none; /* Ngjyra për të bërë dallimin */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+
+        .square {
+            height: 100%;
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+        }
+        .square-30 {
+            width: 35%;
+            background-color: #263f6d;
+            position: relative;
+        }
+        .square-70 {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background-color: rgba(255, 255, 255, 0.713);
+        }
+
+        .square-30 img {
+            width: 100%;
+            height: 28%;
+            object-fit: contain;
+            margin: 0;
+            padding: 0;
+            display: block;
+        }
+        
+        .upload-btn {
+            padding: 0;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            height: 38px;
+            width: 100px;
+            border-radius: 6px;
+            text-align: cinter;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            right: 34px;
+        }
+        .upload-btn:hover {
+            background-color: #0056b3;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.3);
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0;
+            height: calc(100% - 10px);
+        }
+        .info-item {
+            background-color: none;
+            color: white;
+            padding: 0px;
+            margin: 0;
+            width: 95%;
+            box-sizing: border-box;
+            text-align: left;
+            margin-bottom: 0;
+            padding-left: 0;
+        }
+        
+        .personal-info {
+            background-color: none;
+            height: auto; /* Këtu e lejmë lartësinë auto */
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column; /* Ndryshojmë në flex-direction column */
+            align-items: flex-start; /* Të vendosim përmbajtjen në fillim */
+            font-size: 18px; /* E njëjta madhësi fonti */
+            color: white;
+            border: none;
+            overflow: hidden; /* Sigurojmë që informacioni të mos dalë jashtë */
+        }
+
+        
+
+        .skills-content {
+            font-size: 13px; /* Ndryshohet në madhësinë e dëshiruar */
+            overflow: auto; /* Lejojmë skroll nëse ka shumë të dhënat */
+            max-height: 200px; /* Maksimumi i lartësisë për të dhënat */
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left; /* Vendosja e tekstit në anën e majtë */
+            margin: 10px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 2px solid #007BFF;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .input-field::placeholder{
+            font-family: Tahoma;
+            font-size: 13px;
+            color: #5e5e5e;
+        }
+        .top-right-btn {
+            padding: 0;
+            background-color: #2454ad;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: -20%;
+            width: 50px; /* Gjerësia e butonit */
+            height: 50px; /* Gjatësia e butonit */
+            border-radius: 6px; /* Cepat e lakuar */
+            transition: background-color 0.3s, transform 0.7s;
+            box-shadow:3px 4px 10px #000f2cf2;
+            color: #ffffff;
+            text-shadow: 0px 0px 8px #ffffff;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .top-right-btn:hover {
+            background-color:#85bcf5; /* Ngjyra kur kalon mbi butonin */
+            transform: scale(1.08); /* Efekti i zgjerimit */
+            text-shadow: 0px 0px 12px #000000; /* Efekti i zgjerimit */
+        }
+        .top-right-btn:active {  
+            background-color: #ffffff; /* Ngjyra kur kalon mbi butonin */
+            transform: scale(1.08); /* Efekti i zgjerimit */
+            text-shadow: 0px 0px 12px #000000;   
+        }
+        .modern-button:active {
+            background-color: rgb(255, 255, 255);
+            transform: scale(1.3);
+        }
+        .inner-square-1, .inner-square-2 {
+            flex: 1;
+            background-color:non;
+            margin: 0;
+            padding: 3px;
+        }
+
+        .info-item:nth-child(1) {
+            height: 18%;
+        }
+        .info-item:nth-child(2) {
+            box-sizing: border-box;
+        }
+        .info-item:nth-child(3) {
+            box-sizing: border-box;
+        }
+        .info-item:nth-child(4) {
+            box-sizing: border-box;
+        }
+        
+        
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Vendosja në qendër vertikalisht */
+            width: 100%;
+            justify-content: center;
+            padding-left: 5px;
+        }
+        .template {
+            width:300px;
+            min-height: 200px;
+            background-color: #b61616;
+            border: 2px solid #333;
+            position: absolute;
+            top: 0;
+            right: 0; /* Pozicioni i tij në krah të butonit */
+            display: none; /* Fillimisht është fshehur */
+            padding: 0;
+            margin: 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            flex-direction: column;
+        }
+        
+        .dynamic-btn {
+            position: relative;
+            width: 100px;
+            height: 110px;
+            background-color: #28a745;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            padding-bottom: 110px;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        .dynamic-btn img {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            z-index: 1;
+        }
+
+        .dynamic-btn:hover {
+            background-color: #218838;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap; /* Lejon që butonat të mbushin hapësirën */
+            justify-content: space-between; /* Merr maksimumin e hapësirës */
+            width: 100%;
+            height: 100%; 
+            top: 0;
+            left: 0;
+        }
+        .new-div {
+            position: absolute; /* Vendosim pozitën absolute */
+            top: 0; /* Distanca nga maja */
+            right: 0; /* Distanca nga e djathta */
+            background-color:none; /* Ngjyrë e artë */
+            padding: 0;
+            margin: 0;
+            border: none;
+            z-index: 2; /* E bëjmë të dukshme mbi të tjerët */
+            width: 245px;
+            height: 300px;
+            background-image: url('images/boorder1-1.png');
+            background-size: cover; /* Përshtat imazhin në madhësinë e div-it */
+            background-position: center;
+        }
+        .new-div img {
+            position: absolute; /* Pozita absolute për imazhin */
+            top: 0;
+            left: 0;
+            width: 100%; /* Imazhi mbush tërësisht div-in */
+            height: 100%; /* Imazhi mbush tërësisht div-in */
+            object-fit: cover; /* Siguron që imazhi ruan proporcioni e tij */
+        }
+        
+        .imazhi_i_kontakteve{
+            background-color: #263f6d;
+            width: 100%;
+            height: 40px;
+            padding: 0;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+            justify-content: space-between;
+        }
+        .imazhi_i_kontakteve img {
+            background-color: none;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background-size: cover;
+            position: center;
+            box-sizing: border-box;
+        }
+        .fonttitle{
+            width: 60px;
+            height: 50px;
+            margin: 10px 0;
+            border: none;
+            transition: background-color 0.3s, transform 0.7s;cursor: pointer;
+            margin-left: -19px;
+            margin-top: -2px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            box-shadow: 3px 4px 10px #000f2cf2;
+            background-color: #2089fa;
+            border-radius: 6px;
+            color: #ffffff;
+            text-shadow: 0px 0px 8px #ffffff;
+        }
+        .fonttitle:hover {
+            background-color:#85bcf5 ;
+            transform: scale(1.08); /* Efekti i zgjerimit */
+            text-shadow: 0px 0px 12px #2089fa;
+        }
+
+        .fonttitle:active {
+            background-color: #ffffff;
+            transform: scale(1.3); /* Efekti i tkurrjes kur klikohet */
+            text-shadow: 0px 0px 12px #002955;
+        }
+        .fonttext{
+            width: 60px;
+            height: 50px;
+            margin: 10px 0;
+            border: none;
+            transition: background-color 0.3s, transform 0.7s;cursor: pointer;
+            margin-left: -19px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            box-shadow: 3px 4px 10px #000f2cf2;
+            background-color: #2089fa;
+            border-radius: 6px;
+            color: #ffffff;
+            text-shadow: 0px 0px 8px #ffffff;
+        }
+        .fonttext:hover {
+            background-color: #85bcf5;
+            transform: scale(1.08); /* Efekti i zgjerimit */
+            text-shadow: 0px 0px 12px #2089fa;
+        }
+
+        .fonttext:active {
+            background-color: #ffffff;
+            transform: scale(1.3); /* Efekti i tkurrjes kur klikohet */
+            text-shadow: 0px 0px 12px #002955;
+        }
+        .idetekstit2{
+            margin-top: 12px;
+            margin-left: 6px;
+            margin-bottom: 6px;
+            margin-right: 36px;
+            max-height: 327px;
+            word-wrap: break-word;
+            overflow-y: auto;
+            text-align: left;
+        }
+        .idetekstit3{
+            margin-top: 5px;
+            margin-left: 6px;
+            margin-bottom: 6px;
+            margin-right: 6px;
+            max-height: 338px;
+            word-wrap: break-word;
+            overflow-y: auto;
+            text-align: left;
+        }
+        .editor {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            position: relative;
+            box-sizing: border-box;
+            border: 2px solid #007BFF;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+        }
+        .toolbar {
+            display: flex;
+            justify-content: flex-end; 
+            margin-bottom: 5px;
+        }
+
+        .toolbar button {
+            margin-left: 5px; 
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .toolbar button.active {
+            color: #007BFF; /* Ngjyra për butona aktivë */
+            font-weight: bold; /* Gjerësia e shkronjave */
+        }
+
+        .toolbar button.inactive {
+            color: #333; /* Ngjyra për butona jo aktivë */
+        }
+
+        .editable {
+            min-height: 60px; 
+            max-height: 200px;
+            border: none;
+            padding: 0;
+            overflow-y: auto;
+            outline: none; 
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Stil për pikën */
+        .bullet {
+            margin-left: 20px; /* Dëgjues i hapësirës për pikën */
+        }
+        .editable:before {
+            content: "Summary";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #5e5e5e;
+        }
+        .editor-new {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            position: relative;
+            box-sizing: border-box;
+            border: 2px solid #007BFF;
+            border-radius: 4px;
+        }
+
+        .toolbar-new {
+            display: flex;
+            justify-content: flex-end; 
+            margin-bottom: 5px;
+        }
+
+        .toolbar-new button {
+            margin-left: 5px; 
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .toolbar-new button.active {
+            color: #007BFF; /* Ngjyra për butona aktivë */
+            font-weight: bold; /* Gjerësia e shkronjave */
+        }
+
+        .toolbar-new button.inactive {
+            color: #333; /* Ngjyra për butona jo aktivë */
+        }
+
+        .editable-new {
+            min-height: 60px;
+            max-height: 200px; 
+            border: none;
+            padding: 0;
+            overflow-y: auto;
+            outline: none; 
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        /* Stil për pikën */
+        .bullet-new {
+            margin-left: 20px; /* Dëgjues i hapësirës për pikën */
+        }
+        .editable-new:before {
+            content: "Experience";
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #5e5e5e;
+        }
+        .skillcore{
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            height:40px;
+            border: 2px solid #007BFF;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+            overflow: hidden;
+        }
+        
+        .item {
+            list-style-type: disc; /* Pika liste */
+            margin-left: 20px; /* Distanca nga margjina */
+        }
+        #idetekstitw {
+            margin-top: 0;
+            max-width: 400px;
+            border: none;
+            padding: 2px;
+            display: none; /* Fillimisht e fshehur */
+            position: relative; /* Shtoni këtë rresht */
+            z-index: 1000; 
+        }
+        .gjuhe-item {
+            cursor: pointer; /* Shfaq cursor si dorë kur kalon mbi gjuhët */
+            background-color:#333f80ba;/* Shfaq cursor si dorë kur kalon mbi gjuhët */
+            border-radius: 4px;
+            padding-bottom:0;
+            padding-top:0;
+            margin-bottom:3px;
+            margin-top:3px;
+            text-align: center;
+            font-family: 'arial black';
+            color:white;
+            margin-left: 6px;
+            width: 545px;
+            
+        }
+        .gjuhe-item:hover {
+            background-color: #f0f0f0;
+            color:#333f80; /* Ngjyra e sfondit kur kalon mbi të */
+        }
+        
+        #inputTeksti-re {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            resize: vertical; /* Lejon përdoruesin ta rrisë fushën sipas dëshirës */
+            overflow-y: auto;
+            box-sizing: border-box;
+            margin: 5px 0;
+            border: 2px solid #007BFF;
+            border-radius: 4px;
+            min-height: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        #inputTeksti-re::placeholder {
+            font-family: Tahoma;
+            font-size: 13px;
+            color: #5e5e5e;
+        }
+        .qendrimii{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+        }
+        .tekstitlanguage{
+            border: 2px solid #007BFF;
+            width:100%;
+            height: 62px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            margin: 5px;
+            margin-left: 0;
+        }
+        .butonitdheinputitdiv{
+            display: flex; /* Përdorim fleksin për të rregulluar elementët horizontalisht */
+            justify-content: space-between; /* Rregullon hapësirën midis elementëve */
+            align-items: center; 
+            margin-left: 7px;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            width: 595px;
+        }
+        .butoniinput{
+            width: 92%;
+            margin: 3px;
+            height: 30px;
+            max-height: 50px;
+            margin-top: 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            border-radius: 5px;
+        }
+        .butoniinput::placeholder{
+            font-family: Tahoma;
+            font-size: 13px;
+            color: #5e5e5e;
+        }
+        #butonivecant2{
+            margin-top: 1px;
+            margin-right: 3px;
+            border: 1px solid #00397b;
+            border-radius: 8px;
+            background-color: #0760bf;
+            color:#ffffff;
+            text-shadow:0px 0px 8px #080033;
+            height: 35px;
+            transition: background-color 0.3s, transform 0.7s;
+            box-shadow: 2px 2px 2px  #080033;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #butonivecant2:hover {
+            background-color: #e0deff;
+            text-shadow: 2px 2px 15px #080033;
+            height: 38px;
+            width: 9%;
+        }
+        .tiitle {
+            font-size: 16px; /* Madhësia e titullit */
+            margin-bottom: 1px; /* Hapësira poshtë titullit */
+            padding-bottom: 5px; /* Hapësira brenda titullit */
+            border-bottom: 2px solid #ffffff; /* Trashësia dhe ngjyra e vijës */
+            width: 104%;
+            margin-top: 3px;
+            margin-left: 3px;
+        }
+        .tiitle.active {
+            color: #000000; /* Ngjyra e re për titullin */
+            border-color: #000000; /* Ngjyra e re për vijën nën titull */
+        }
+        .button-rignt2 {
+            display: flex;
+            flex-direction: column; /* Bën që butonat të vendosen vertikalisht */
+            position: relative;/* Përqendron butonat lart në div */
+            align-items: center; /* I vendos në qendër horizontalisht */
+            height: 100vh; /* Opcionale, për ta bërë div-in sa i lartë është dritarja */
+            gap: 20px; /* Hapësirë e barabartë midis butonave */
+            justify-content: center;
+            
+        }       
+        .e2{
+            margin-top: 100px;
+            margin-bottom: 30px;
+        }
+        .font-color2{
+            margin-top: -216px;
+            width: 60px;
+            margin-left: 12px;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'forte';
+            font-size: 23px;
+            transition: background-color 1.0s, color 1.5s;
+            cursor: pointer;
+        }
+        .font-color2.active {
+            background-color: #000000; /* Ngjyra e background-it kur klikohet */
+            color: white; /* Ngjyra e tekstit kur klikohet */
+        }
+        
+        .font-color3{
+            margin-bottom: 45px;
+            width: 60px;
+            margin-left: 12px;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'impact';
+            font-size: 23px;
+            transition: background-color 1.0s, color 1.5s;
+            cursor: pointer;
+        }
+        .font-color3.active {
+            background-color: #000000; /* Ngjyra e background-it kur klikohet */
+            color: white; /* Ngjyra e tekstit kur klikohet */
+        }
+        .font-color5{
+            width: 60px;
+            margin-left: 12px;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'forte';
+            font-size: 23px;
+            transition: background-color 1.0s, color 1.5s;
+            cursor: pointer;
+        }
+        .font-color5.active {
+            background-color: #000000; /* Ngjyra e background-it kur klikohet */
+            color: white; /* Ngjyra e tekstit kur klikohet */
+        }
+        .font-color4{
+            width: 60px;
+            margin-left: 12px;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'impact';
+            font-size: 23px;
+            transition: background-color 1.0s, color 1.5s;
+            cursor: pointer;
+        }
+        .font-color4.active {
+            background-color: #000000; /* Ngjyra e background-it kur klikohet */
+            color: white; /* Ngjyra e tekstit kur klikohet */
+        }
+        .texxt-active {
+            color: rgb(255, 255, 255); /* Ngjyra e re për tekstin */
+        }
+        .textxt-active {
+            color: black; /* Ngjyra e re për tekstin */
+        }
+        .texixt-active {
+            color: black; /* Ngjyra e re për tekstin */
+            border-bottom: 2px solid #000000;
+            width: 100%;
+            margin-bottom: 0;
+        }
+        .acitive {
+            color: #000000; /* Ngjyra e re për titujt */
+            border-color: #000000; /* Ngjyra e re për vijat nën tituj */
+        }
+        #idsumary, #idexperience{
+            margin-left: 4px;
+            font-size: 20px;
+        }
+        .personal-data{
+            width: 100%;
+            box-sizing: border-box;
+            margin-left: 10px;
+            font-size: 13px;
+            margin-top: 4px;
+            word-wrap: break-word;
+        }
+        #listaDiv-re {
+            width: 100%;
+            min-height: 0;
+            padding: 10px;
+            background-color: none;
+            box-sizing: border-box;
+            margin-top: 8px;
+            padding: 0;
+            word-wrap: break-word;
+        }
+        #lista-re{
+            width: 111%;
+            margin-top: 0;
+            margin-left: -16px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+        #lista {
+            margin-top: 5px;
+            padding: 0;
+            padding-left: 2px;
+            max-width: 300px;
+            font-size: 15px;
+        }
+        .iemaili{
+            width: 170px;
+            height: 35px;
+            margin-left: 3px;
+            display: flex;
+            align-items: center;
+            position:relative;
+        }
+        .iphone{
+            width: 170px;
+            height: 35px;
+            margin-right: 3px;
+            display: flex;
+        }
+        .ieemailit{
+            height: 70%;
+            width: 25px;
+            margin-left: 2px;
+            align-items: center;
+            padding-top: 8px;
+        }
+        .vetemaili{
+            height: 70%;
+            box-sizing: border-box;
+            margin: 4px;
+            width: 190px;
+            align-items: center;
+            display: flex;
+            align-items: flex-start;
+            font-family: 'Georgia';
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .kompleti{
+            display: flex;
+            align-items: center;
+            width: 400px;
+            height:50px;
+            box-sizing: border-box;
+            position: absolute;
+            margin-top: -5px;
+            display: flex; /* Aktivizohet flexbox */
+            justify-content: space-between;
+            
+        }
+        .iephone{
+            height: 70%;
+            width: 25px;
+            margin-right: -3px;
+            align-items: center;
+            padding-top: 8px;
+        }
+        .vetphone{
+            height: 70%;
+            box-sizing: border-box;
+            margin: 4px;
+            width: 100%;
+            padding-top: 2px;
+            font-family: 'Georgia';
+            display: flex;
+            align-items: flex-start;
+
+        }
+        .uemaili-phone {
+            width: 100%;
+            height: 35px;
+            display: flex;
+            margin: 10px;
+            margin-left: 0;
+            gap:10px;
+            margin-right: 30px;
+        }
+        .uemail{
+            width: 100%;
+            height:100%;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid #007BFF;
+        }
+        .uemail::placeholder{
+            font-family: Tahoma;
+            font-size: 13px;
+            color: #5e5e5e;
+        }
+        .uphone{
+            width: 100%;
+            height:100%;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid #007BFF;
+        }
+        .uphone::placeholder{
+            font-family: Tahoma;
+            font-size: 13px;
+            color: #5e5e5e;
+        }
+        .downlodi {
+            width: 150px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff; /* Ngjyrë blu moderne */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hije e lehtë */
+            right: -13px;
+        }
+
+        /* Efekti i shkëlqimit serioz dhe i sofistikuar */
+        .downlodi:hover {
+            background-color: #0056b3; /* Ngjyrë blu e errët kur kalon mbi të */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .downlodi::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
+
+        .downlodi:hover::before {
+            opacity: 1;
+            animation: softShine 1.5s ease forwards;
+        }
+
+        /* Animacioni për efektin e shkëlqimit të lehtë */
+        @keyframes softShine {
+            0% {
+                transform: translate(-100%, -50%) rotate(45deg);
+            }
+            100% {
+                transform: translate(100%, 50%) rotate(45deg);
+            }
+        }
+
+        .downlodi {
+            margin-right: 8px; /* Distanca midis ikonës dhe tekstit */
+            font-size: 20px; /* Madhësia e ikonës */
+            left: 40px;
+        }
+        .butonatkryesor{
+            display: flex; /* Përdorim flexbox për rreshtim horizontal */
+            justify-content: center; /* Qendrojmë butonat në qendër */
+            gap: 70px;
+            width:612px;
+            margin-top: 40px;
+        }
+        
+        .new-btn {
+            width: 150px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #3ed121; /* Ngjyrë blu moderne */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hije e lehtë */
+            text-align: center;
+            padding-left: 36px;
+            left: 23px;
+        }
+
+        /* Efekti i shkëlqimit serioz dhe i sofistikuar */
+        .new-btn:hover {
+            background-color: #37cc09; /* Ngjyrë blu e errët kur kalon mbi të */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .new-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
+
+        .new-btn:hover::before {
+            opacity: 1;
+            animation: softShine 1.5s ease forwards;
+        }
+
+        /* Animacioni për efektin e shkëlqimit të lehtë */
+        @keyframes softShine {
+            0% {
+                transform: translate(-100%, -50%) rotate(45deg);
+            }
+            100% {
+                transform: translate(100%, 50%) rotate(45deg);
+            }
+        }
+        .overlay {
+            display: none;
+            position:fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+        }
+
+        /* Shablloni/modal-i */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            width: 350px;
+            min-height: 250px;
+            max-height: 400px;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            text-align: center;
+            overflow-y: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2 style="color: white;">Try The Service</h2>
+        <input type="text" class="input-field" placeholder="Name" id="firstName">
+        <input type="text" class="input-field" placeholder="Surname" id="lastName">
+        <input type="number" class="input-field" placeholder="Age" id="age">
+        <input type="text" class="input-field" placeholder="Country" id="location">
+        <input type="text" class="input-field" placeholder="Education" id="educatioon">
+        <textarea id="inputTeksti-re" placeholder="Core Skill &#10; e.g. • Text" rows="2"></textarea>
+        <div class="qendrimii tekstitlanguage"><div class="qendrimii butonitdheinputitdiv"><input type="text" class="butoniinput" id="teksti" placeholder=" Languages" />
+        <button id="butonivecant2">Send</button></div><div id="idetekstitw"></div> </div>
+        <div class="editor"> 
+            <div class="toolbar">
+                <button id="bulletButton" class="inactive" title="Shto Pikë"><i class="fas fa-list-ul"></i></button>
+                <button id="boldButton" class="inactive" title="Bold"><i class="fas fa-bold"></i></button>
+                <button id="italicButton" class="inactive" title="Italic"><i class="fas fa-italic"></i></button>
+                <button id="underlineButton" class="inactive" title="Nënvizim"><i class="fas fa-underline"></i></button>
+                <button id="clearButton" title="Fshi"><i class="fas fa-trash"></i></button>
+                <button id="alignLeftButton" title="Majtas"><i class="fas fa-align-left"></i></button>
+                <button id="alignCenterButton" title="Qendër"><i class="fas fa-align-center"></i></button>
+                <button id="alignRightButton" title="Djathtas"><i class="fas fa-align-right"></i></button>
+                <button id="sendButton" title="Dërgo" onclick="sendContent('editableDiv', 'outputDiv')"><i class="fas fa-paper-plane"></i></button> <!-- Butoni i ri -->
+            </div>
+            <div id="editableDiv" class="editable"  contenteditable="true" placeholder="Fut tekstin këtu..."></div>
+        </div>
+        <div class="editor-new">
+            <div class="toolbar-new">
+                <button id="bulletButtonNew" class="inactive" title="Shto Pikë"><i class="fas fa-list-ul"></i></button>
+                <button id="boldButtonNew" class="inactive" title="Bold"><i class="fas fa-bold"></i></button>
+                <button id="italicButtonNew" class="inactive" title="Italic"><i class="fas fa-italic"></i></button>
+                <button id="underlineButtonNew" class="inactive" title="Nënvizim"><i class="fas fa-underline"></i></button>
+                <button id="clearButtonNew" title="Fshi"><i class="fas fa-trash"></i></button>
+                <button id="alignLeftButtonNew" title="Majtas"><i class="fas fa-align-left"></i></button>
+                <button id="alignCenterButtonNew" title="Qendër"><i class="fas fa-align-center"></i></button>
+                <button id="alignRightButtonNew" title="Djathtas"><i class="fas fa-align-right"></i></button>
+                <button id="sendButtonNew" title="Dërgo" onclick="sendContentNew('editableDivNew', 'outputDivNew')"><i class="fas fa-paper-plane"></i></button> <!-- Butoni i ri -->
+            </div>
+            <div id="editableDivNew" class="editable-new" contenteditable="true" placeholder="Fut tekstin këtu..."></div>
+        </div>
+        <div class="uemaili-phone">
+            <input type="text" class="uemail" id="manualTextInput" placeholder="Email" />
+            <input type="number" class="uphone" id="manualTextInput2" placeholder="Phone" />
+        </div>
+        <div class="butonatkryesor">
+            <button class="upload-btn" onclick="document.getElementById('fileInput').click()">Upload photo</button>
+            <button class="new-btn" id="butonivecant" onclick="showInfo()">Create CV</button>
+            <button class="downlodi" id ="butonidownlod" onclick="shkarkimiicvse()"><i class="fas fa-arrow-down"></i>Download</button>
+        </div>
+    </div>
+    <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="loadImage(event)">
+    
+    <div class="wrapper"> <!-- Kjo është e reja për të mbajtur div-in e anës dhe div-in e formës në rresht -->
+        <div class="side-bar">
+            <button class="fonttitle" onclick="funksioniititullit()">Font Tittle</button>
+            <button class="fonttext" onclick="changeeFonts()">Font Text</button> </p>
+            <button class="button button-1" onclick="changeBackground('images/outer9.png')"></button>
+            <button class="button button-2" onclick="changeBackground1('images/outer10.png')"></button>
+            <button class="button button-3" onclick="changeBackground2('images/outer11.png')"></button>
+            <button class="button button-4" onclick="changeBackground3('images/outer1.png')"></button>
+            <button class="button button-9" onclick="changeBackground8('images/outer6.png')"></button>
+            <button class="button button-10" onclick="changeBackground9('images/outer7.png')"></button>
+            <button class="button button-5" onclick="changeBackground4('images/outer2.png')"></button>
+            <button class="button button-6" onclick="changeBackground5('images/outer3.png')"></button>
+            <button class="button button-7" onclick="changeBackground6('images/outer4.png')"></button>
+            <button class="button button-8" onclick="changeBackground7('images/outer5.png')"></button>
+            <button class="button button-11" onclick="changeBackground10('images/outer8.png')"></button>
+            
+        </div> <!-- Divi i ri me gjerësi 60px -->
+        <div class="form-container" id="menefund">
+            <div class="square square-30">
+                <img id="uploadedImage" src="" alt="Uploaded Image">
+                <div class="info-section">
+                    <div class="info-item personal-info">
+                        <h1 class="tiitle" id="title01"><strong id="text11">Personal Info</strong></h1> <!-- Titulli që nuk do të fshihet -->
+                        <div id="personalData" class="personal-data"></div> <!-- Këtu do të shfaqen të dhënat -->
+                    </div>
+                    <div class="info-item" >
+                        <h1 class="tiitle" id="title02"><strong id="text22">Education</strong></h1> <!-- Titulli për aftësitë -->
+                        <div id="skillsContent" class="personal-data"></div> <!-- Këtu do të shfaqen aftësitë -->
+                    </div>
+                    <div class="info-item">
+                        <h1 id="title03" class="tiitle"><strong id="text33">Skill Cores</strong></h1> <!-- Titulli për aftësitë -->
+                        <div id="listaDiv-re">
+                            <ul id="lista-re"></ul>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <h1 class="tiitle" id="title04"><strong id="text44">Language</strong></h1> <!-- Titulli për aftësitë -->
+                        <ul id="lista"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="square square-70" id="displayArrea">
+                
+                <div class="inner-square-1" style="text-align: left;">
+                    <strong id="idsumary">Summary</strong>
+                    <div class="new-div" id="imageContenier"></div>
+                    <div id="outputDiv" class="idetekstit2"></div>
+                </div>
+                <div class="inner-square-2" style="text-align: left;">
+                    <strong id="idexperience">Experience</strong>
+                    <div id="outputDivNew" class="idetekstit3"></div>
+                </div>
+                <div class="imazhi_i_kontakteve" id="outeri">
+                    <div class="kompleti">
+                        <div class="iemaili">
+                            <div class="ieemailit"><i class="fas fa-envelope email-icon"></i></div>
+                            <div class="vetemaili" id="vetmail"></div>
+                        </div>
+                        <div class="iphone">
+                            <div class="iephone"><i class="fas fa-phone icon"></i> </div>
+                            <div class="vetphone" id="vetphone"></div>
+                        </div>
+                    </div>
+                    <img id="nrewImage" class="newBackgroundImage" src="images/outer9.png" alt="Imazhi i Ri" />
+                </div>
+            </div>
+        </div>
+        <div class="button-rignt2">
+            <button id="myyButton" class="button sf font-color2" onclick="fontcolor2()">Tittle</button>
+            <button id="myyButton1" class="button sf font-color3" onclick="fontcolor3()">Text</button>
+            <button id="myyButton3" class="button sf font-color5" onclick="fontcolor5()">Tittle</button>
+            <button id="myyButton2" class="button sf font-color4" onclick="fontcolor4()">Text</button>
+            <button class="top-right-btn e2" onclick="toggleFont2()">Text </button>
+            <button class="top-right-btn" onclick="toggleTemplate()">Photos</button>
+        </div>
+        
+        <div class="template" id="dynamicTemplate">
+            <div class="button-container">
+                <!-- Butonat dinamike -->
+                <button class="dynamic-btn" id="idjaebutonit">
+                    <img src="images/kopja23.jpg" alt="Butoni 1">
+                    <span>Butoni 1</span>
+                </button>
+                <button class="dynamic-btn" id="idjaebutonit1">
+                    <img src="images/c22ed2901c725f1b19c6e4af0ebc3a58.jpeg"  alt="Butoni 2">
+                    <span>Butoni 2</span>
+                </button>
+                <button class="dynamic-btn" id="idjaebutonit2">
+                    <img src="images/c08360cfb8f8880b0be27be43da456ef.jpg" alt="Butoni 3">
+                    <span>Butoni 3</span>
+                </button>
+                <button class="dynamic-btn" id="idjaebutonit3">
+                    <img src="images/R.jpeg" alt="Butoni 4">
+                    <span>Butoni 4</span>
+                </button>
+                <button class="dynamic-btn" id="idjaebutonit4">
+                    <img src="images/2e7efaac86f3d3db9c5bcc81442a53a9.jpg" alt="Butoni 5">
+                    <span>Butoni 5</span>
+                </button>
+                <button class="dynamic-btn" id="idjaebutonit5">
+                    <img src="images/desktop-wallpaper-iphonex-iphone-x-298785756526787464-iphone-x-home-screen.jpg" alt="Butoni 6">
+                    <span>Butoni 6</span>
+                </button>
+                <button class="dynamic-btn" id="idjaebutonit6">
+                    <img src="images/f7035cc5d9275785754e412bceecdec2.jpg" alt="Butoni 7">
+                    <span>Butoni 7</span>
+                </button>
+                <button class="dynamic-btn" id="idjaebutonit7">
+                    <img src="images/blue_waves_2-720x1280.jpg" alt="Butoni 8">
+                    <span>Butoni 8</span>
+                </button>
+                <button class="dynamic-btn" id="idjaebutonit8">
+                    <img src="images/2e7efaac86f3d3db9c5bcc81442a53a9.jpg" alt="Butoni 9">
+                    <span>Butoni 9</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function loadImage(event) {
+            var image = document.getElementById('uploadedImage');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        const editableDivNew = document.getElementById("editableDivNew");
+        const bulletButtonNew = document.getElementById("bulletButtonNew");
+        const boldButtonNew = document.getElementById("boldButtonNew");
+        const italicButtonNew = document.getElementById("italicButtonNew");
+        const underlineButtonNew = document.getElementById("underlineButtonNew");
+        const clearButtonNew = document.getElementById("clearButtonNew");
+        const alignLeftButtonNew = document.getElementById("alignLeftButtonNew");
+        const alignCenterButtonNew = document.getElementById("alignCenterButtonNew");
+        const alignRightButtonNew = document.getElementById("alignRightButtonNew");
+        const outputDivNew = document.getElementById("outputDivNew");
+
+        // Ruajmë gjendjen e butonave
+        let boldActiveNew = false;
+        let italicActiveNew = false;
+        let underlineActiveNew = false;
+        let bulletActiveNew = false; // Shtojmë një gjendje për bullet
+
+        // Aktivizojmë butonin e majtë automatikisht kur ngarkohet faqja
+        alignLeftButtonNew.classList.add('active');
+        alignLeftButtonNew.classList.remove('inactive');
+    
+        function toggleCommandNew(command, button) {
+            document.execCommand(command, false, null);
+
+            // Kontrollojmë cilin buton po aktivizojmë
+            if (command === 'insertUnorderedList') {
+                bulletActiveNew = !bulletActiveNew; // Ndryshon gjendjen
+                button.classList.toggle('active', bulletActiveNew); // Aktivizo butonin
+                button.classList.toggle('inactive', !bulletActiveNew); // Çaktivizo butonin
+            } else if (command === 'bold') {
+                boldActiveNew = !boldActiveNew; 
+                button.classList.toggle('active', boldActiveNew);
+                button.classList.toggle('inactive', !boldActiveNew);
+            } else if (command === 'italic') {
+                italicActiveNew = !italicActiveNew; 
+                button.classList.toggle('active', italicActiveNew);
+                button.classList.toggle('inactive', !italicActiveNew);
+            } else if (command === 'underline') {
+                underlineActiveNew = !underlineActiveNew; 
+                button.classList.toggle('active', underlineActiveNew);
+                button.classList.toggle('inactive', !underlineActiveNew);
+            }
+        }
+
+        bulletButtonNew.addEventListener("click", function() {
+            toggleCommandNew('insertUnorderedList', bulletButtonNew);
+            editableDivNew.focus();
+        });
+
+        boldButtonNew.addEventListener("click", function() {
+            toggleCommandNew('bold', boldButtonNew);
+            editableDivNew.focus();
+        });
+
+        italicButtonNew.addEventListener("click", function() {
+            toggleCommandNew('italic', italicButtonNew);
+            editableDivNew.focus();
+        });
+
+        underlineButtonNew.addEventListener("click", function() {
+            toggleCommandNew('underline', underlineButtonNew);
+            editableDivNew.focus();
+        });
+
+        clearButtonNew.addEventListener("click", function() {
+            editableDivNew.innerHTML = "";
+            outputDivNew.innerHTML = ""; // Fshi outputin
+            bulletActiveNew = false; // Rivendosim gjendjen e bullet
+            boldActiveNew = false; // Rivendosim gjendjen e bold
+            italicActiveNew = false; // Rivendosim gjendjen e italic
+            underlineActiveNew = false; // Rivendosim gjendjen e underline
+            bulletButtonNew.classList.remove('active', 'inactive'); // Rivendosim butonin e bullet
+            boldButtonNew.classList.remove('active', 'inactive'); // Rivendosim butonin e bold
+            italicButtonNew.classList.remove('active', 'inactive'); // Rivendosim butonin e italic
+            underlineButtonNew.classList.remove('active', 'inactive'); // Rivendosim butonin e underline
+            alignLeftButtonNew.classList.add('active'); // Rivendosim butonin e majtë
+        });
+
+        // Funksioni për rreshtimin e tekstit
+        function alignTextNew(alignment) {
+            document.execCommand('justify' + alignment, false, null);
+        }
+
+        // Event listener për rreshtimin majtas
+        alignLeftButtonNew.addEventListener("click", function() {
+            alignTextNew('Left');
+            alignLeftButtonNew.classList.add('active');
+            alignCenterButtonNew.classList.remove('active');
+            alignRightButtonNew.classList.remove('active');
+            editableDivNew.focus();
+        });
+
+        // Event listener për rreshtimin në qendër
+        alignCenterButtonNew.addEventListener("click", function() {
+            alignTextNew('Center');
+            alignCenterButtonNew.classList.add('active');
+            alignLeftButtonNew.classList.remove('active');
+            alignRightButtonNew.classList.remove('active');
+            editableDivNew.focus();
+        });
+
+        // Event listener për rreshtimin djathtas
+        alignRightButtonNew.addEventListener("click", function() {
+            alignTextNew('Right');
+            alignRightButtonNew.classList.add('active');
+            alignLeftButtonNew.classList.remove('active');
+            alignCenterButtonNew.classList.remove('active');
+            editableDivNew.focus();
+        });
+
+        // Funksioni për të dërguar përmbajtjen
+        function sendContentNew(editableId, outputId) {
+            const content = document.getElementById(editableId).innerHTML;
+            const outputDiv = document.getElementById(outputId);
+            outputDiv.innerHTML = content;
+        }
+        const editableDiv = document.getElementById("editableDiv");
+        const bulletButton = document.getElementById("bulletButton");
+        const boldButton = document.getElementById("boldButton");
+        const italicButton = document.getElementById("italicButton");
+        const underlineButton = document.getElementById("underlineButton");
+        const clearButton = document.getElementById("clearButton");
+        const alignLeftButton = document.getElementById("alignLeftButton");
+        const alignCenterButton = document.getElementById("alignCenterButton");
+        const alignRightButton = document.getElementById("alignRightButton");
+        const outputDiv = document.getElementById("outputDiv");
+
+        // Ruajmë gjendjen e butonave
+        let boldActive = false;
+        let italicActive = false;
+        let underlineActive = false;
+        let bulletActive = false; // Shtojmë një gjendje për bullet
+
+        // Aktivizojmë butonin e majtë automatikisht kur ngarkohet faqja
+        alignLeftButton.classList.add('active');
+        alignLeftButton.classList.remove('inactive');
+    
+        function toggleCommand(command, button) {
+            document.execCommand(command, false, null);
+
+            // Kontrollojmë cilin buton po aktivizojmë
+            if (command === 'insertUnorderedList') {
+                bulletActive = !bulletActive; // Ndryshon gjendjen
+                button.classList.toggle('active', bulletActive); // Aktivizo butonin
+                button.classList.toggle('inactive', !bulletActive); // Çaktivizo butonin
+            } else if (command === 'bold') {
+                boldActive = !boldActive; 
+                button.classList.toggle('active', boldActive);
+                button.classList.toggle('inactive', !boldActive);
+            } else if (command === 'italic') {
+                italicActive = !italicActive; 
+                button.classList.toggle('active', italicActive);
+                button.classList.toggle('inactive', !italicActive);
+            } else if (command === 'underline') {
+                underlineActive = !underlineActive; 
+                button.classList.toggle('active', underlineActive);
+                button.classList.toggle('inactive', !underlineActive);
+            }
+        }
+
+        bulletButton.addEventListener("click", function() {
+            toggleCommand('insertUnorderedList', bulletButton);
+            editableDiv.focus();
+        });
+
+        boldButton.addEventListener("click", function() {
+            toggleCommand('bold', boldButton);
+            editableDiv.focus();
+        });
+
+        italicButton.addEventListener("click", function() {
+            toggleCommand('italic', italicButton);
+            editableDiv.focus();
+        });
+
+        underlineButton.addEventListener("click", function() {
+            toggleCommand('underline', underlineButton);
+            editableDiv.focus();
+        });
+
+        clearButton.addEventListener("click", function() {
+            editableDiv.innerHTML = "";
+            outputDiv.innerHTML = ""; // Fshi outputin
+            bulletActive = false; // Rivendosim gjendjen e bullet
+            boldActive = false; // Rivendosim gjendjen e bold
+            italicActive = false; // Rivendosim gjendjen e italic
+            underlineActive = false; // Rivendosim gjendjen e underline
+            bulletButton.classList.remove('active', 'inactive'); // Rivendosim butonin e bullet
+            boldButton.classList.remove('active', 'inactive'); // Rivendosim butonin e bold
+            italicButton.classList.remove('active', 'inactive'); // Rivendosim butonin e italic
+            underlineButton.classList.remove('active', 'inactive'); // Rivendosim butonin e underline
+            alignLeftButton.classList.add('active'); // Rivendosim butonin e majtë
+        });
+
+        // Funksioni për rreshtimin e tekstit
+        function alignText(alignment) {
+            document.execCommand('justify' + alignment, false, null);
+        }
+
+        // Event listener për rreshtimin majtas
+        alignLeftButton.addEventListener("click", function() {
+            alignText('Left');
+            alignLeftButton.classList.add('active');
+            alignCenterButton.classList.remove('active');
+            alignRightButton.classList.remove('active');
+            editableDiv.focus();
+        });
+
+        // Event listener për rreshtimin në qendër
+        alignCenterButton.addEventListener("click", function() {
+            alignText('Center');
+            alignCenterButton.classList.add('active');
+            alignLeftButton.classList.remove('active');
+            alignRightButton.classList.remove('active');
+            editableDiv.focus();
+        });
+
+        // Event listener për rreshtimin djathtas
+        alignRightButton.addEventListener("click", function() {
+            alignText('Right');
+            alignRightButton.classList.add('active');
+            alignLeftButton.classList.remove('active');
+            alignCenterButton.classList.remove('active');
+            editableDiv.focus();
+        });
+
+        // Funksioni për të dërguar përmbajtjen
+        function sendContent(editableId, outputId) {
+            const content = document.getElementById(editableId).innerHTML;
+            document.getElementById(outputId).innerHTML = content;
+        } 
+        function showInfo() {
+            const firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var age = document.getElementById("age").value;
+            var location = document.getElementById("location").value;
+            var Education = document.getElementById("educatioon").value;
+
+
+            // Shfaq të dhënat në div-in e duhur
+            document.getElementById("personalData").innerText = "Name: " + firstName + "\nSurname: " + lastName + "\nAge: " + age + "\nCountry: " + location;
+            document.getElementById("skillsContent").innerText = Education;
+
+            sendContent('editableDiv', 'outputDiv');
+            sendContentNew('editableDivNew', 'outputDivNew');
+        }
+        function changeBackground(imageSrc) {
+            // Ndryshimi i ngjyrës së sfondit për square-30 dhe inner-square-2
+            document.querySelector('.square-30').style.backgroundColor = '#263f6d'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/boorder1.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+        }
+        
+        function changeBackground1(imageSrc) {
+            document.querySelector('.square-30').style.backgroundColor = '#5c5a62'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/border2.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+            
+        }
+        function changeBackground2(imageSrc) {
+            // Ndryshimi i ngjyrës së sfondit për square-30 dhe inner-square-2
+            document.querySelector('.square-30').style.backgroundColor = '#bab6b6'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/border5.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+        }
+        function changeBackground3(imageSrc) {
+            // Ndryshimi i ngjyrës së sfondit për square-30 dhe inner-square-2
+            document.querySelector('.square-30').style.backgroundColor = '#fff'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/border6.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+        }
+        function changeBackground4(imageSrc) {
+            // Ndryshimi i ngjyrës së sfondit për square-30 dhe inner-square-2
+            document.querySelector('.square-30').style.backgroundColor = '#55dcee'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/border7.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+        }
+        function changeBackground5(imageSrc) {
+            // Ndryshimi i ngjyrës së sfondit për square-30 dhe inner-square-2
+            document.querySelector('.square-30').style.backgroundColor = '#cae4fc'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/border8.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+        }
+        function changeBackground6(imageSrc) {
+            // Ndryshimi i ngjyrës së sfondit për square-30 dhe inner-square-2
+            document.querySelector('.square-30').style.backgroundColor = '#e8e8e8'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/border9.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+        }
+        function changeBackground7(imageSrc) {
+            // Ndryshimi i ngjyrës së sfondit për square-30 dhe inner-square-2
+            document.querySelector('.square-30').style.backgroundColor = '#84c6e8'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/border10.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+        }
+        function changeBackground8(imageSrc) {
+            // Ndryshimi i ngjyrës së sfondit për square-30 dhe inner-square-2
+            document.querySelector('.square-30').style.backgroundColor = '#1d1d1d'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/border11.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+        }
+        function changeBackground9(imageSrc) {
+            // Ndryshimi i ngjyrës së sfondit për square-30 dhe inner-square-2
+            document.querySelector('.square-30').style.backgroundColor = '#294959'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/border12.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+        }
+        function changeBackground10(imageSrc) {
+            // Ndryshimi i ngjyrës së sfondit për square-30 dhe inner-square-2
+            document.querySelector('.square-30').style.backgroundColor = '#53274f'; // E njëjta ngjyrë si button-1
+            const imageContainer = document.getElementById("imageContenier");
+            imageContainer.innerHTML = '<img src="images/border13.png" alt="Imazh" />';
+            const newImage1 = document.getElementById("nrewImage");
+            newImage1.src = imageSrc; // Ndrysho burimin e imazhit
+            newImage1.style.display = 'block'; // Shfaq imazhin kur klikohet butoni
+        }
+        
+        
+        function toggleTemplate() {
+            const template = document.getElementById('dynamicTemplate');
+            const button = document.querySelector('.top-right-btn');
+
+            if (template.style.display === 'none' || template.style.display === '') {
+                // Merr pozicionin e butonit
+                const buttonRect = button.getBoundingClientRect();
+
+                // Vendos shabllonin afër butonit
+                template.style.top = `1044px`;
+                template.style.left = `275px`;
+                
+                // Shfaq shabllonin
+                template.style.display = 'block';
+            } else {
+                // Fshih shabllonin
+                template.style.display = 'none';
+            }
+        }
+        const fonts = ['Arial', 'Arial Black', 'Verdana', 
+        'Tahoma', 'Trebuchet MS', 'Impact',
+        'Times New Roman', 'Georgia', 'Palatino Linotype',
+        'Courier New', 'Lucida Console', 'Lucida Sans Unicode', 'Gill Sans'
+
+        ];
+        const fontss = [
+            'Arial','Georgia'
+        ];
+        const fontsss = ["Arial, sans-serif", "Courier New, monospace", "Georgia, serif", "Tahoma, sans-serif", "Times New Roman, serif"];
+        
+        let currentFontIndex = 0; // Indeksi i fontit aktual
+
+        function funksioniititullit() {
+            // Ndryshimi i fontit për të dy tekstet
+            currentFontIndex = (currentFontIndex + 1) % fonts.length; // Rrit indekset në cikël
+            document.getElementById('text11').style.fontFamily = fonts[currentFontIndex];
+            document.getElementById('text22').style.fontFamily = fonts[currentFontIndex];
+            document.getElementById('text33').style.fontFamily = fonts[currentFontIndex];
+            document.getElementById('text44').style.fontFamily = fonts[currentFontIndex];
+            document.getElementById('idsumary').style.fontFamily = fonts[currentFontIndex];
+            document.getElementById('idexperience').style.fontFamily = fonts[currentFontIndex];
+        }
+        
+        function changeeFonts() {
+            currentFontIndex = (currentFontIndex + 1) % fontss.length; 
+            document.getElementById('personalData').style.fontFamily = fontss[currentFontIndex];
+            document.getElementById('skillsContent').style.fontFamily = fontss[currentFontIndex];
+            document.getElementById('listaDiv-re').style.fontFamily = fontss[currentFontIndex];
+            document.getElementById('lista').style.fontFamily = fontss[currentFontIndex];
+        }
+        function toggleFont2() {
+            currentFontIndex = (currentFontIndex + 1) % fontsss.length;
+            document.getElementById('outputDiv').style.fontFamily = fontsss[currentFontIndex];
+            document.getElementById('outputDivNew').style.fontFamily = fontsss[currentFontIndex];
+        }
+        function vendosImazh(imageUrl) {
+            const displayArea = document.getElementById("displayArrea");
+            displayArea.style.backgroundImage = `url('${imageUrl}')`;
+            displayArea.style.backgroundSize = "cover"; // E bën imazhin të përshtatet brenda div-it pa prerë
+            displayArea.style.backgroundPosition = "center"; // Vendos imazhin në qendër të div-it
+            displayArea.style.backgroundRepeat = "no-repeat";
+        }
+
+        document.getElementById("idjaebutonit").addEventListener("click", function() {
+            vendosImazh("images/kopja23.jpg");
+        });
+
+        document.getElementById("idjaebutonit1").addEventListener("click", function() {
+            vendosImazh("images/c22ed2901c725f1b19c6e4af0ebc3a58.jpeg");
+        });
+        document.getElementById("idjaebutonit2").addEventListener("click", function() {
+            vendosImazh("images/c08360cfb8f8880b0be27be43da456ef.jpg");
+        });
+        document.getElementById("idjaebutonit3").addEventListener("click", function() {
+            vendosImazh("images/R.jpeg");
+        });
+        document.getElementById("idjaebutonit4").addEventListener("click", function() {
+            vendosImazh("images/2e7efaac86f3d3db9c5bcc81442a53a9.jpg");
+        });
+        document.getElementById("idjaebutonit5").addEventListener("click", function() {
+            vendosImazh("images/desktop-wallpaper-iphonex-iphone-x-298785756526787464-iphone-x-home-screen.jpg");
+        });
+        document.getElementById("idjaebutonit6").addEventListener("click", function() {
+            vendosImazh("images/f7035cc5d9275785754e412bceecdec2.jpg");
+        });
+        document.getElementById("idjaebutonit7").addEventListener("click", function() {
+            vendosImazh("images/blue_waves_2-720x1280.jpg");
+        });
+        document.getElementById("idjaebutonit8").addEventListener("click", function() {
+            vendosImazh("images/2e7efaac86f3d3db9c5bcc81442a53a9.jpg");
+        });
+        const gjuhet = [
+            "Afrikaans", "Albanian", "Amharic", "Arabic", "Armenian", "Azerbaijani", 
+            "Basque", "Belarusian", "Bengali", "Bosnian", "Bulgarian", "Catalan", "Cebuano",
+            "Chichewa", "Chinese (Simplified)", "Chinese (Traditional)", "Corsican",
+            "Croatian", "Czech", "Danish", "Dutch", "English", "Esperanto", "Estonian",
+            "Filipino", "Finnish", "French", "Frisian", "Galician", "Georgian", "German", 
+            "Greek", "Gujarati", "Haitian Creole", "Hausa", "Hawaiian", "Hebrew", "Hindi",
+            "Hmong", "Hungarian", "Icelandic", "Igbo", "Indonesian", "Irish", "Italian", 
+            "Japanese", "Javanese", "Kannada", "Kazakh", "Khmer", "Korean", "Kurdish",
+            "Kyrgyz", "Lao", "Latin", "Latvian", "Lithuanian", "Luxembourgish", "Macedonian",
+            "Malagasy", "Malay", "Malayalam", "Maltese", "Maori", "Marathi", "Mongolian",
+            "Myanmar (Burmese)", "Nepali", "Norwegian", "Odia (Oriya)", "Pashto", "Persian", 
+            "Polish", "Portuguese", "Punjabi", "Romanian", "Russian", "Samoan", "Scots Gaelic",
+            "Serbian", "Sesotho", "Shona", "Sindhi", "Sinhala", "Slovak", "Slovenian", "Somali", 
+            "Spanish", "Sundanese", "Swahili", "Swedish", "Tajik", "Tamil", "Tatar", "Telugu",
+            "Thai", "Turkish", "Turkmen", "Ukrainian", "Urdu", "Uyghur", "Uzbek", "Vietnamese",
+            "Welsh", "Xhosa", "Yiddish", "Yoruba", "Zulu"
+        ];
+
+        document.getElementById('teksti').addEventListener('input', function() {
+            const inputTeksti = this.value;
+            const gjuhetDiv = document.getElementById('idetekstitw');
+            gjuhetDiv.innerHTML = ''; // Pastron listën e gjuhëve të mëparshme
+
+            if (inputTeksti.length > 0) {
+                // Merr shkronjat e shkruara
+                const shkronjat = inputTeksti.toLowerCase();
+                
+                // Kërko për gjuhët që fillojnë me të gjitha shkronjat e shkruara
+                const gjuhePerputhese = gjuhet.filter(gjuha => 
+                    gjuha.toLowerCase().startsWith(shkronjat)
+                );
+
+                if (gjuhePerputhese.length > 0) {
+                    gjuhetDiv.style.display = 'block'; // Tregon div-in
+                    gjuhePerputhese.forEach(gjuha => {
+                        const p = document.createElement('p');
+                        p.textContent = gjuha;
+                        p.className = 'gjuhe-item'; // Shtimi i klasës për stiling
+                        p.onclick = function() {
+                            document.getElementById('teksti').value = ''; // Fshihet teksti i shkruar
+                            document.getElementById('teksti').value += gjuha + ' '; // Shto gjuhën në input
+                            gjuhetDiv.innerHTML = ''; // Pastron listën e gjuhëve
+                            gjuhetDiv.style.display = 'none'; // Fsheh div-in
+                        };
+                        gjuhetDiv.appendChild(p);
+                    });
+                } else {
+                    gjuhetDiv.style.display = 'none'; // Fsheh div-in nëse nuk ka përputhje
+                }
+            } else {
+                gjuhetDiv.style.display = 'none'; // Fsheh div-in nëse inputi është bosh
+            }
+        });
+
+        function shtoRresht() {
+            const inputTeksti = document.getElementById('teksti').value;
+            if (inputTeksti) {
+                const li = document.createElement('li');
+                li.className = 'item';
+                li.textContent = inputTeksti;
+                document.getElementById('lista').appendChild(li);
+                document.getElementById('teksti').value = ''; // Pastron fushën e tekstit
+                document.getElementById('idetekstitw').innerHTML = ''; // Pastron listën e gjuhëve
+                document.getElementById('idetekstitw').style.display = 'none'; // Fsheh div-in
+            } 
+            
+        }
+
+        document.getElementById('butonivecant').addEventListener('click', shtoRresht);
+        document.getElementById('butonivecant2').addEventListener('click', shtoRresht);
+                // Referenca për tekstarinë dhe ul-in brenda div-it
+                // Referenca për tekstarinë dhe ul-in brenda div-it
+        const inputTekstiRe = document.getElementById("inputTeksti-re");
+        const listaRe = document.getElementById("lista-re");
+        const shtoButtonRe = document.getElementById("butonivecant"); // Referenca për butonin
+
+        // Funksioni për të shtuar një pikë të re në listë
+        function shtoPikeListeRe() {
+            // Merr vlerën e tekstarisë
+            const tekstiRe = inputTekstiRe.value.trim();
+
+            // Kontrollo që teksti të mos jetë bosh
+            if (tekstiRe) {
+                // Fshi të gjitha pikat e mëparshme në listë
+                listaRe.innerHTML = ''; // Pastron listën e mëparshme
+                
+                // Ndaje tekstin sipas rreshtave
+                const rreshtaRe = tekstiRe.split('\n');
+                // Shto secilin rresht si një pikë në listë
+                rreshtaRe.forEach(rresht => {
+                    const itemListeRe = document.createElement("li");
+                    itemListeRe.textContent = rresht.trim(); // Pastro rreshtin
+                    listaRe.appendChild(itemListeRe);
+                });
+                inputTekstiRe.value += ''; // Shtoni një string bosh për të mbajtur textarea të hapur
+            }
+        }
+
+        // Lidh butonin me funksionin përmes ID
+        document.getElementById("butonivecant").addEventListener("click", shtoPikeListeRe); // Thirr funksionin kur klikohet butoni
+
+        // Ngjarja për të pranuar Enter brenda textarea
+        inputTekstiRe.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                // Lejon krijimin e rreshtit të ri
+                // Nuk është e nevojshme të bëjmë ndonjë gjë këtu
+            }
+        });
+        const butttoons = document.querySelectorAll('.sf');
+
+        // Përdorni forEach për të aplikuar një event listener për secilin buton
+        butttoons.forEach(butttoon => {
+            butttoon.addEventListener('click', () => {
+                butttoon.classList.toggle('active');
+            });
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const butfton = document.getElementById('myyButton');
+            const texts = [
+                document.getElementById('idsumary'),
+                document.getElementById('idexperience'),
+               
+            ];
+
+            butfton.addEventListener('click', () => {
+                texts.forEach(text => {
+                    text.classList.toggle('texxt-active'); // Ndrysho ngjyrën e secilit tekst
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const butfton = document.getElementById('myyButton1');
+            const texts = [
+                document.getElementById('outputDiv'),
+                document.getElementById('outputDivNew'),
+               
+            ];
+
+            butfton.addEventListener('click', () => {
+                texts.forEach(text => {
+                    text.classList.toggle('texxt-active'); // Ndrysho ngjyrën e secilit tekst
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const butfton = document.getElementById('myyButton2');
+            const texts = [
+                document.getElementById('personalData'),
+                document.getElementById('skillsContent'),
+                document.getElementById('lista-re'),
+                document.getElementById('lista'),
+               
+            ];
+
+            butfton.addEventListener('click', () => {
+                texts.forEach(text => {
+                    text.classList.toggle('textxt-active'); // Ndrysho ngjyrën e secilit tekst
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const biutton = document.getElementById('myyButton3');
+
+            biutton.addEventListener('click', () => {
+                // Thirr secilin titull veç e veç me ID
+                const title01 = document.getElementById('title01');
+                const title02 = document.getElementById('title02');
+                const title03 = document.getElementById('title03');
+                const title04 = document.getElementById('title04');
+
+                // Ndrysho ngjyrat për secilin titull
+                title01.classList.toggle('acitive');
+                title02.classList.toggle('acitive');
+                title03.classList.toggle('acitive');
+                title04.classList.toggle('acitive');
+            });
+        });
+        document.getElementById("butonivecant").addEventListener("click", function() {
+            const text = document.getElementById("manualTextInput").value;
+            document.getElementById("vetmail").innerText = text; // Transfero tekstin te div-i destinacion
+            const text2 = document.getElementById("manualTextInput2").value;
+            document.getElementById("vetphone").innerText = text2;
+        });
+        function  shkarkimiicvse(){
+            window.location.href = "https://blijonline.gumroad.com/l/dixly?_gl=1*1e8ysga*_ga*NDU2MzM1NzI0LjE3MjU5MTU3MjE.*_ga_6LJN6D94N6*MTczMDY3MjcyNC4zOC4xLjE3MzA2NzQ5MTQuMC4wLjA."; // Zëvendëso me domain-in tënd
+        }
+    </script>
+</body>
+</html>
+
